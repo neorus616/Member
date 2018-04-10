@@ -1,12 +1,10 @@
 #include "Member.h"
-#include <stdio.h>
-#include <iostream>
 using namespace std;
 
-int Member::NUMOFMEMBERS = 0;
+int Member::ACTIVE_MEMBERS = 0;
 
 Member::Member(){
-    NUMOFMEMBERS++;
+    ACTIVE_MEMBERS++;
     }
 
 void Member::follow(Member& m){
@@ -42,7 +40,7 @@ int Member::numFollowing(){
 }
 
 int Member::count(){
-    return NUMOFMEMBERS;
+    return ACTIVE_MEMBERS;
 }
 
 
@@ -53,5 +51,5 @@ Member::~Member(){
     for(int i = 0; i<following.size(); i++){
         unfollow(*following[i]);
     }
-          NUMOFMEMBERS--;
+          ACTIVE_MEMBERS--;
 }
